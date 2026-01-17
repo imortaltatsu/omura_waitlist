@@ -11,7 +11,7 @@ function App() {
       {/* Header / Marquee */}
       <header className="relative z-10 border-b border-white/5 backdrop-blur-md bg-black/20">
         <div className="flex justify-between items-center px-6 py-4 border-b border-white/5">
-          <div className="text-sm font-mono tracking-widest text-white/80">omura v1</div>
+          <div className="text-sm font-mono tracking-widest text-white/80">omura</div>
           <div className="flex gap-4 text-xs font-mono text-white/40">
             <span className="hidden sm:inline">NET_STATUS: <span className="text-emerald-500">OPTIMAL</span></span>
             <span>[ <span className="text-white">NON-CUSTODIAL</span> ]</span>
@@ -19,7 +19,6 @@ function App() {
         </div>
         <div className="py-2">
           <Marquee speed={40} className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-white/30">
-            <span className="mx-8">System Status: Online</span>
             <span className="mx-8 text-indigo-500">///</span>
             <span className="mx-8">Encrypted Connection</span>
             <span className="mx-8 text-indigo-500">///</span>
@@ -32,17 +31,18 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col justify-center items-center px-4 sm:px-6 relative w-full max-w-7xl mx-auto my-8 sm:my-0">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full relative">
+        <div className="w-full relative flex justify-center items-center">
 
           {/* Decorative Corner Brackets */}
-          <div className="hidden lg:block absolute -top-10 -left-10 w-20 h-20 border-t border-l border-white/10 opacity-50"></div>
-          <div className="hidden lg:block absolute -bottom-10 -right-10 w-20 h-20 border-b border-r border-white/10 opacity-50"></div>
+          <div className="hidden lg:block absolute -top-10 left-10 w-20 h-20 border-t border-l border-white/10 opacity-50"></div>
+          <div className="hidden lg:block absolute -bottom-10 right-10 w-20 h-20 border-b border-r border-white/10 opacity-50"></div>
 
-          <div className="lg:col-span-7 order-2 lg:order-1 relative z-20 pt-10 lg:pt-0 text-center lg:text-left">
+          <div className="relative z-20 pt-10 lg:pt-0 text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex flex-col items-center"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-sm mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
@@ -53,19 +53,16 @@ function App() {
                 OMURA
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-10 font-light max-w-lg leading-relaxed mx-auto lg:mx-0 lg:border-l-2 lg:border-indigo-500/50 lg:pl-6">
+              <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-10 font-light max-w-lg leading-relaxed text-center">
                 The first <span className="text-white font-medium">Search Engine</span> built on the <span className="text-white font-medium">Walrus Protocol</span>. Decentralized, censorship-resistant, and powered by you.
               </p>
 
-              <WaitlistForm />
+              <div className="w-full max-w-md">
+                <WaitlistForm />
+              </div>
             </motion.div>
           </div>
 
-          {/* 3D Scene Container - positioned to overlap subtly */}
-          <div className="lg:col-span-5 order-1 lg:order-2 h-[250px] sm:h-[350px] lg:h-[600px] flex items-center justify-center relative">
-            {/* The global 3D scene handles the background, this div directs layout flow on mobile */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent lg:hidden z-10 pointer-events-none"></div>
-          </div>
         </div>
       </main>
 
